@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Threading;
 
-namespace MeuApp
+namespace Stopwatch
 {
     internal class Program
     {
         static void Main(string[] args)
         {            
-            
+            Start();
         }
 
         static void Start()
@@ -15,7 +16,10 @@ namespace MeuApp
              
             while(currentTime != time)
             {
+                Console.Clear();
                 currentTime +=1;
+                Console.WriteLine(currentTime);
+                Thread.Sleep(1000);
             }           
         }         
     }
