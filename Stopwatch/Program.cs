@@ -8,5 +8,15 @@ namespace MeuApp
         {            
             
         }
+
+        static void Start()
+        {
+            int time = 10, currentTime = 0 ;
+             
+            while(currentTime != time)
+            {
+                currentTime +=1;
+            }           
+        }         
     }
 }
