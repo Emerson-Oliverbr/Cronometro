@@ -11,6 +11,18 @@ namespace Stopwatch
             Menu();
         }
 
+        static void PreStart(int time)
+        {
+            Console.Clear();
+            Console.WriteLine("Ready...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Set...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Do...");
+            Thread.Sleep(2000);
+            Start(time);
+        }
+
         static void Menu() 
         {
             Console.Clear();
@@ -21,9 +33,19 @@ namespace Stopwatch
 
             string? data = Console.ReadLine().ToLower();
             char type = char.Parse(data.Substring(data.Length - 1, 1));
-            Console.WriteLine(data);        
-            Console.WriteLine(type); 
+            int time = int.Parse(data.Substring(0, data.Length -1));
+            int multplier = 1;    
+
+            if(type == 'm'){
+                multplier += 60;
+            }
+            if (type == 0) {
+                System.Environment.Exit(0); 
+            } 
+
+           PreStart(time * multplier);           
         }    
+
         static void Start(int time)
         {
             int currentTime = 0 ;
@@ -38,6 +60,7 @@ namespace Stopwatch
             Console.Clear();
             Console.WriteLine("Stopwatch Finalizado");      
             Thread.Sleep(1500);
+            Menu();
         }         
     }
 }
